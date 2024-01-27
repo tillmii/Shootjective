@@ -16,13 +16,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.get_action_strength(player_index + "_shoot") == 1:
+	if Input.get_action_strength(player_index + "_shoot_right") - Input.get_action_strength(player_index + "_shoot_left") - Input.get_action_strength(player_index + "_shoot_up") - Input.get_action_strength(player_index + "_shoot_down"):
 		_fire()
 
 func get_input():
 	var input = Vector2.ZERO
-	input.x = Input.get_action_strength(player_index + "_aim_right") - Input.get_action_strength(player_index + "_aim_left")
-	input.y = Input.get_action_strength(player_index + "_aim_down") - Input.get_action_strength(player_index + "_aim_up")
+	input.x = Input.get_action_strength(player_index + "_shoot_right") - Input.get_action_strength(player_index + "_shoot_left")
+	input.y = Input.get_action_strength(player_index + "_shoot_down") - Input.get_action_strength(player_index + "_shoot_up")
 	return input.normalized()
 
 func _fire():
