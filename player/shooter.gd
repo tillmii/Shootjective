@@ -33,6 +33,7 @@ func _fire():
 	_timer.start()
 	_can_shoot = false
 	
+	$"../Shoot".play()
 	var projectile_instance = _projectile.instantiate()
 	projectile_instance.position = player.position
 	projectile_instance.apply_impulse(input * IMPULSE)

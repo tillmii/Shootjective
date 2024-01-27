@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export_enum("p1", "p2") var player_index: String
-const SPEED = 300.0
+const SPEED = 400.0
 const DASH_SPEED = 1200.0
 const DASH_DIST = 200.0
 const DASH_COOLDOWN = 1
@@ -44,6 +44,7 @@ func dash():
 		return
 	is_dashing = true
 	dash_origin = position
+	$Dash.play()
 	_animated_sprite.play("dash")
 
 func _physics_process(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cq5s0d2kx7dv6"]
+[gd_scene load_steps=27 format=3 uid="uid://cq5s0d2kx7dv6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
 [ext_resource type="Texture2D" uid="uid://b7odjty52wiwb" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://bsar72glomlv" path="res://player/art/idle/sprite_2.png" id="11_s7ptk"]
 [ext_resource type="Texture2D" uid="uid://c5mar4bjuo0g2" path="res://player/art/idle/sprite_3.png" id="12_qrdfr"]
 [ext_resource type="Texture2D" uid="uid://dan8ni717bwli" path="res://player/art/idle/sprite_4.png" id="13_01m2c"]
+[ext_resource type="AudioStream" uid="uid://chqws3p38q3ld" path="res://player/sfx/laserShoot1.wav" id="23_rqhtj"]
+[ext_resource type="AudioStream" uid="uid://bdb6c6j3jvmdp" path="res://player/sfx/dash1.wav" id="24_n2i56"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywv22"]
 animations = [{
@@ -123,5 +125,14 @@ shape = SubResource("CapsuleShape2D_qyomo")
 
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_rqhtj")
+volume_db = -5.098
+pitch_scale = 0.8
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_n2i56")
+pitch_scale = 2.0
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
