@@ -1,0 +1,59 @@
+[gd_scene load_steps=12 format=3 uid="uid://cq5s0d2kx7dv6"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
+[ext_resource type="Texture2D" uid="uid://dvn1x2xe17543" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
+[ext_resource type="Texture2D" uid="uid://ceqmesp63v33c" path="res://player/art/walk/sprite_1.png" id="2_d0bwd"]
+[ext_resource type="Texture2D" uid="uid://daf3ply12s0xw" path="res://player/art/walk/sprite_2.png" id="3_vyt8v"]
+[ext_resource type="Texture2D" uid="uid://br10ued5nnco0" path="res://player/art/walk/sprite_3.png" id="4_ekhi2"]
+[ext_resource type="Texture2D" uid="uid://tbb3wbf1jvx1" path="res://player/art/walk/sprite_4.png" id="5_cdwl5"]
+[ext_resource type="Texture2D" uid="uid://c1uv0vbcgyd6p" path="res://player/art/walk/sprite_5.png" id="6_pqjha"]
+[ext_resource type="Texture2D" uid="uid://y058ix46jpih" path="res://player/art/walk/sprite_6.png" id="7_fn1hu"]
+[ext_resource type="Texture2D" uid="uid://bhx183rybbnup" path="res://player/art/walk/sprite_7.png" id="8_ygt3a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywv22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yvnuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_d0bwd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vyt8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ekhi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cdwl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pqjha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fn1hu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ygt3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyomo"]
+radius = 18.0
+height = 52.0
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_17hwi")
+player = "p1"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.101758, 0.101758)
+sprite_frames = SubResource("SpriteFrames_ywv22")
+frame_progress = 0.321002
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qyomo")
