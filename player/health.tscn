@@ -5,3 +5,4 @@
 [node name="Health" type="Node"]
 script = ExtResource("1_qo8o7")
 max_hit_points = 10
+start_hit_points = 5
