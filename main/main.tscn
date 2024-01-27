@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://clol7avgfpm7v"]
+
+[ext_resource type="PackedScene" uid="uid://cq5s0d2kx7dv6" path="res://player/player.tscn" id="1_cptyd"]
+[ext_resource type="PackedScene" uid="uid://craupcfmahbwv" path="res://pickups/pickup_spawner.tscn" id="2_ayads"]
+[ext_resource type="PackedScene" uid="uid://csqoawues4645" path="res://main/wall.tscn" id="3_4uk06"]
+
+[node name="Main" type="Node2D"]
+
+[node name="PickupSpawner" parent="." instance=ExtResource("2_ayads")]
+position = Vector2(0, 0)
+bounds_X = 750.0
+Bounds_up = -290.0
+bounds_down = 415.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+
+[node name="player" parent="." instance=ExtResource("1_cptyd")]
+position = Vector2(-633, -190)
+
+[node name="player2" parent="." instance=ExtResource("1_cptyd")]
+position = Vector2(638, 364)
+player_index = "p2"
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="BottomWall" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(0, 430)
+
+[node name="TopWall" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(0, -300)
+
+[node name="LeftWall" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(-770, 75)
+rotation = 1.5708
+scale = Vector2(0.5, 1)
+
+[node name="RightWall" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(755, 75)
+rotation = 1.5708
+scale = Vector2(0.5, 1)
+
+[node name="Wall" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(-363, -73)
+rotation = -0.349066
+scale = Vector2(0.2, 1)
+
+[node name="Wall2" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(-322, 217)
+rotation = 0.698132
+scale = Vector2(0.2, 1)
+
+[node name="Wall3" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(369, -171)
+rotation = 0.349066
+scale = Vector2(0.2, 1)
+
+[node name="Wall4" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(66, 39)
+rotation = -0.349066
+scale = Vector2(0.1, 4)
+
+[node name="Wall5" parent="Walls" instance=ExtResource("3_4uk06")]
+position = Vector2(505, 158)
+rotation = -0.610865
+scale = Vector2(0.2, 1)
