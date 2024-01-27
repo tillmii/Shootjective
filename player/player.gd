@@ -16,6 +16,22 @@ func get_input():
 	input.y = Input.get_action_strength(player_index + "_move_down") - Input.get_action_strength(player_index + "_move_up")
 	return input.normalized()
 
+func _input(event):
+	if Input.is_action_just_pressed(player + "_dash"):
+		dash()
+	if Input.is_action_just_pressed(player + "_shoot"):
+		var trigger_shooting
+	if Input.is_action_just_pressed(player + "_ability_enemy"):
+		#placeholder
+		var add_ability_activation
+	if Input.is_action_just_pressed(player + "ability_self"):
+		#placeholder
+		var add_ability_activation
+
+func dash():
+	#placeholder
+	var add_dash_function_pls
+
 func _physics_process(delta):
 	velocity = get_input() * SPEED
 	move_and_slide()
