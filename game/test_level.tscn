@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://wmfnvjsgvda0"]
+
+[ext_resource type="PackedScene" uid="uid://cq5s0d2kx7dv6" path="res://player/player.tscn" id="1_y0vw0"]
+[ext_resource type="PackedScene" uid="uid://craupcfmahbwv" path="res://pickups/pickup_spawner.tscn" id="2_u22tf"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_y0vw0")]
+
+[node name="PickupSpawner" parent="." instance=ExtResource("2_u22tf")]
+position = Vector2(582, 333)
+
+[node name="Camera2D" type="Camera2D" parent="."]
