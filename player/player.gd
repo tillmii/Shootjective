@@ -24,7 +24,7 @@ func _input(event):
 	if Input.is_action_just_pressed(player_index + "_ability_enemy"):
 		#placeholder
 		var add_ability_activation
-	if Input.is_action_just_pressed(player_index + "ability_self"):
+	if Input.is_action_just_pressed(player_index + "_ability_self"):
 		#placeholder
 		var add_ability_activation
 
