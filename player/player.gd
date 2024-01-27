@@ -13,7 +13,6 @@ func get_input():
 	input.y = Input.get_action_strength(player + "_move_down") - Input.get_action_strength(player + "_move_up")
 	return input.normalized()
 
-
 func _physics_process(delta):
 	velocity = get_input() * SPEED
 	move_and_slide()
