@@ -17,14 +17,14 @@ func get_input():
 	return input.normalized()
 
 func _input(event):
-	if Input.is_action_just_pressed(player + "_dash"):
+	if Input.is_action_just_pressed(player_index + "_dash"):
 		dash()
-	if Input.is_action_just_pressed(player + "_shoot"):
+	if Input.is_action_just_pressed(player_index + "_shoot"):
 		var trigger_shooting
-	if Input.is_action_just_pressed(player + "_ability_enemy"):
+	if Input.is_action_just_pressed(player_index + "_ability_enemy"):
 		#placeholder
 		var add_ability_activation
-	if Input.is_action_just_pressed(player + "ability_self"):
+	if Input.is_action_just_pressed(player_index + "ability_self"):
 		#placeholder
 		var add_ability_activation
 

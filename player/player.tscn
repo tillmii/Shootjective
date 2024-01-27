@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1uv0vbcgyd6p" path="res://player/art/walk/sprite_5.png" id="6_pqjha"]
 [ext_resource type="Texture2D" uid="uid://y058ix46jpih" path="res://player/art/walk/sprite_6.png" id="7_fn1hu"]
 [ext_resource type="Texture2D" uid="uid://bhx183rybbnup" path="res://player/art/walk/sprite_7.png" id="8_ygt3a"]
-[ext_resource type="PackedScene" uid="uid://c6su31t67ncek" path="res://player/shooter.tscn" id="10_grwlg"]
+[ext_resource type="PackedScene" path="res://player/shooter.tscn" id="10_grwlg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywv22"]
 animations = [{
