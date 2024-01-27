@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cq5s0d2kx7dv6"]
+[gd_scene load_steps=13 format=3 uid="uid://cq5s0d2kx7dv6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
 [ext_resource type="Texture2D" uid="uid://dvn1x2xe17543" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c1uv0vbcgyd6p" path="res://player/art/walk/sprite_5.png" id="6_pqjha"]
 [ext_resource type="Texture2D" uid="uid://y058ix46jpih" path="res://player/art/walk/sprite_6.png" id="7_fn1hu"]
 [ext_resource type="Texture2D" uid="uid://bhx183rybbnup" path="res://player/art/walk/sprite_7.png" id="8_ygt3a"]
+[ext_resource type="PackedScene" uid="uid://c6su31t67ncek" path="res://player/shooter.tscn" id="10_grwlg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywv22"]
 animations = [{
@@ -47,8 +48,9 @@ radius = 18.0
 height = 52.0
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_17hwi")
-player = "p1"
+player_index = "p1"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.101758, 0.101758)
@@ -57,3 +59,5 @@ frame_progress = 0.321002
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qyomo")
+
+[node name="shooter" parent="." instance=ExtResource("10_grwlg")]

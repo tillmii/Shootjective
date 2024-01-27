@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d30t2s7a274wk"]
+
+[ext_resource type="Texture2D" uid="uid://kqb203hjmv3j" path="res://projectile/art/Bullet.png" id="1_cbvxd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p2cf2"]
+radius = 12.0
+
+[node name="projectile" type="RigidBody2D"]
+gravity_scale = 0.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_cbvxd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_p2cf2")
