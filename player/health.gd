@@ -1,15 +1,17 @@
 extends Node
 class_name health
 
-@export var max_hit_points : int
-@export var start_hit_points : int
+@export var initial_values : initial_values
+var max_hit_points : int
 var current_hit_points : int
 
 signal hit_points_depleted
 signal hit_points_changed(new_amount : int)
 
 func _ready():
-	current_hit_points = start_hit_points
+	current_hit_points = initial_values.character_start_hit_points
+	max_hit_points = initial_values.character_max_hit_points
+	hit_points_changed.emit(current_hit_points)
 
 func heal_by_amount(heal_amount : int):
 	current_hit_points += heal_amount

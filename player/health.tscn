@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgd2swuhlr3rf"]
+[gd_scene load_steps=3 format=3 uid="uid://cgd2swuhlr3rf"]
 
 [ext_resource type="Script" path="res://player/health.gd" id="1_qo8o7"]
+[ext_resource type="Resource" uid="uid://w03flsj81pv2" path="res://game/default_values.tres" id="2_cjgn3"]
 
 [node name="Health" type="Node"]
 script = ExtResource("1_qo8o7")
-max_hit_points = 10
-start_hit_points = 5
+initial_values = ExtResource("2_cjgn3")
