@@ -10,9 +10,18 @@ signal depleted
 func _ready():
 	current_hit_points = start_hit_points
 
+func heal_by_amount(heal_amount : int):
+	current_hit_points += heal_amount
+	if current_hit_points > max_hit_points:
+		current_hit_points = max_hit_points
+
+func heal_fully():
+	current_hit_points = max_hit_points
+
 func take_damage(damage_amount : int):
 	if current_hit_points <= 0:
 		return
 	current_hit_points -= damage_amount
 	if current_hit_points <= 0:
+		current_hit_points = 0
 		depleted.emit()
