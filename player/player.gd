@@ -2,10 +2,20 @@ extends CharacterBody2D
 
 @export_enum("p1", "p2") var player_index: String
 const SPEED = 300.0
+const DASH_SPEED = 1200.0
+const DASH_DIST = 200.0
+const DASH_COOLDOWN = 1
 @onready var _animated_sprite = $AnimatedSprite2D
 
+@onready var _dash_cooldown = $DashCooldown
+var can_dash = true
+var is_dashing = false
+var dash_dir: Vector2
+var dash_origin
+
 func _ready():
-	_animated_sprite.play("default")
+	_animated_sprite.play("walk")
+	_animated_sprite.sprite_frames.set_animation_loop("dash", false)	
 
 func get_player_index():
 	return player_index
@@ -29,9 +39,29 @@ func _input(event):
 		var add_ability_activation
 
 func dash():
-	#placeholder
-	var add_dash_function_pls
+	dash_dir = get_input().normalized()
+	if dash_dir == Vector2.ZERO || !can_dash:
+		return
+	is_dashing = true
+	dash_origin = position
+	_animated_sprite.play("dash")
 
 func _physics_process(delta):
 	velocity = get_input() * SPEED
+	if is_dashing:
+		velocity = dash_dir * DASH_SPEED
+		if position.distance_to(dash_origin) >= DASH_DIST || get_slide_collision_count() > 0:
+			is_dashing = false
+			can_dash = false
+			_dash_cooldown.start(DASH_COOLDOWN)
+	elif velocity == Vector2.ZERO:
+		_animated_sprite.play("idle")
+		return
+	else:
+		_animated_sprite.play("walk")
 	move_and_slide()
+
+
+
+func _on_dash_cooldown_timeout():
+	can_dash = true
