@@ -27,4 +27,6 @@ func after_dash(player_status: PlayerStatus):
 	player_status.status_changed.emit()
 
 func activate(player_status : PlayerStatus):
-	player_status.dash_effects.append(self)
+	var is_stacked = deactivate_if_stacked(player_status, player_status.dash_effects)
+	if !is_stacked:
+		player_status.dash_effects.append(self)
