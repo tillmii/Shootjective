@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name player_character
 
 @export_enum("p1", "p2") var player_index: String
-@onready var _animated_sprite = $AnimatedSprite2D
+@onready var _animated_sprite = $AnimationPlayer
 
 @onready var _dash_cooldown = $DashCooldown
 @onready var dash_progress_bar = $DashProgressBar
@@ -14,10 +14,7 @@ var dash_origin
 @export var status : PlayerStatus
 
 func _ready():
-	status.connect("status_changed", _on_player_status_changed)
-	status = status.duplicate()
-	_animated_sprite.play("walk")
-	_animated_sprite.sprite_frames.set_animation_loop("dash", false)
+	pass
 
 func get_player_index():
 	return player_index
@@ -49,7 +46,8 @@ func dash():
 	is_dashing = true
 	dash_origin = position
 	$Dash.play()
-	_animated_sprite.play("dash")
+	_animated_sprite.play("dash", -1, 3.0)
+	_animated_sprite.queue("idle")
 
 func _physics_process(delta):
 	dash_progress_bar.value = _dash_cooldown.time_left
@@ -63,19 +61,26 @@ func _physics_process(delta):
 			for dash_effect in status.dash_effects:
 				dash_effect.after_dash(status)
 	elif velocity == Vector2.ZERO:
-		_animated_sprite.play("idle")
+		if _animated_sprite.current_animation == "walk":
+			_animated_sprite.play("idle")
 		return
 	else:
-		_animated_sprite.play("walk")
+		if _animated_sprite.current_animation == "idle":
+			_animated_sprite.play("walk")
 	move_and_slide()
 
 func _on_player_status_changed():
 	# shader related changes?
 	scale = status.character_stretch
-	modulate.a = status.character_alpha
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
 
 func _on_health_hit_points_depleted():
 	queue_free()
+
+func _on_health_hit_points_changed(new_amount):
+	if _animated_sprite:
+		_animated_sprite.play("damage")
+		_animated_sprite.queue("idle")
+
