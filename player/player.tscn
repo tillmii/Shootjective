@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cq5s0d2kx7dv6"]
+[gd_scene load_steps=31 format=3 uid="uid://cq5s0d2kx7dv6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
 [ext_resource type="Texture2D" uid="uid://b7odjty52wiwb" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dan8ni717bwli" path="res://player/art/idle/sprite_4.png" id="13_01m2c"]
 [ext_resource type="AudioStream" uid="uid://chqws3p38q3ld" path="res://player/sfx/laserShoot1.wav" id="23_rqhtj"]
 [ext_resource type="AudioStream" uid="uid://bdb6c6j3jvmdp" path="res://player/sfx/dash1.wav" id="24_n2i56"]
+[ext_resource type="Texture2D" uid="uid://de6niqknlmy27" path="res://effects/art/Shield.png" id="24_srkjb"]
 [ext_resource type="PackedScene" uid="uid://cgd2swuhlr3rf" path="res://player/health.tscn" id="25_otbrv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ywv22"]
@@ -131,6 +132,20 @@ shape = SubResource("CapsuleShape2D_qyomo")
 
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="AbilityAvailableIcon" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AbilityIcon" type="Sprite2D" parent="AbilityAvailableIcon"]
+visible = false
+scale = Vector2(0.02, 0.02)
+texture = ExtResource("24_srkjb")
 
 [node name="DashProgressBar" type="TextureProgressBar" parent="."]
 offset_left = -32.0
