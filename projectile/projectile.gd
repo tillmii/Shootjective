@@ -4,6 +4,8 @@ var DIRECTION: Vector2 = Vector2.ZERO
 var SPEED = 1000
 var _active = false
 
+@export var explosion_scene : PackedScene
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,6 +27,9 @@ func _process(delta):
 				apply_player_hit(body)
 			if body.get_collision_layer() == 1:
 				print("wall")
+		var explosion_instance = explosion_scene.instantiate()
+		get_tree().current_scene.add_child.call_deferred(explosion_instance)
+		explosion_instance.global_position = position
 		queue_free()
 
 func apply_impulse(dir: Vector2, speed = SPEED):

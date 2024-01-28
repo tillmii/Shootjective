@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dieevacmcra4r" path="res://player/art/walk/sprite_7.png" id="8_ygt3a"]
 [ext_resource type="Texture2D" uid="uid://d3kftcqdogxnh" path="res://player/art/idle/sprite_0.png" id="9_xn7cd"]
 [ext_resource type="Texture2D" uid="uid://da7uhltxxq7ge" path="res://player/art/idle/sprite_1.png" id="10_3ix1u"]
-[ext_resource type="PackedScene" uid="uid://c6su31t67ncek" path="res://player/shooter.tscn" id="10_grwlg"]
+[ext_resource type="PackedScene" path="res://player/shooter.tscn" id="10_grwlg"]
 [ext_resource type="Texture2D" uid="uid://bsar72glomlv" path="res://player/art/idle/sprite_2.png" id="11_s7ptk"]
 [ext_resource type="Texture2D" uid="uid://c5mar4bjuo0g2" path="res://player/art/idle/sprite_3.png" id="12_qrdfr"]
 [ext_resource type="Texture2D" uid="uid://dan8ni717bwli" path="res://player/art/idle/sprite_4.png" id="13_01m2c"]
@@ -155,13 +155,12 @@ offset_bottom = 35.0
 max_value = 1.0
 step = 0.01
 value = 1.0
-fill_mode = 6
+fill_mode = 1
 nine_patch_stretch = true
 texture_under = SubResource("CompressedTexture2D_mrlkl")
 texture_progress = SubResource("CompressedTexture2D_mrlkl")
-tint_under = Color(0.278431, 0.584314, 0.219608, 0)
-tint_over = Color(1, 1, 1, 0)
-tint_progress = Color(1, 1, 1, 0.380392)
+tint_under = Color(0.278431, 0.584314, 0.219608, 0.890196)
+tint_progress = Color(0, 0, 0, 1)
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_rqhtj")
