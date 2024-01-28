@@ -183,7 +183,7 @@ bounds_down = 393.0
 
 [node name="player" parent="." instance=ExtResource("1_cptyd")]
 position = Vector2(-633, -190)
-color = Color(0, 0.407843, 0.192157, 1)
+color = Color(0.184314, 0.658824, 0, 1)
 
 [node name="ColorRect" parent="player" index="10"]
 visibility_layer = 2
@@ -192,7 +192,7 @@ material = SubResource("ShaderMaterial_yy5dk")
 
 [node name="player2" parent="." instance=ExtResource("1_cptyd")]
 position = Vector2(638, 364)
-color = Color(0.52549, 0, 0.623529, 1)
+color = Color(0.796078, 0, 0.768627, 1)
 player_index = "p2"
 
 [node name="HUD" type="Control" parent="."]
