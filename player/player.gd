@@ -81,6 +81,8 @@ func _physics_process(delta):
 func activate_held_effect(target_player : player_character):
 	if !is_instance_valid(held_effect):
 		return
+	if !is_instance_valid(target_player):
+		return
 	held_effect.activate(target_player.status)
 	_held_effect_icon.visible = false
 
