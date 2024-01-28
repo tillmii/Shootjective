@@ -5,4 +5,4 @@
 [resource]
 script = ExtResource("1_fd3u4")
 character_max_hit_points = 10
-character_start_hit_points = 3
+character_start_hit_points = 5

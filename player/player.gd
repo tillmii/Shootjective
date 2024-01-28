@@ -63,7 +63,5 @@ func _physics_process(delta):
 		_animated_sprite.play("walk")
 	move_and_slide()
 
-
-
 func _on_dash_cooldown_timeout():
 	can_dash = true
