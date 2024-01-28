@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnhkv3htn0vnm"]
+[gd_scene load_steps=5 format=3 uid="uid://cnhkv3htn0vnm"]
+
+[ext_resource type="Script" path="res://projectile/explosion.gd" id="1_2kt78"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nw7bl"]
-radius = 32.0
+radius = 16.0
 
 [sub_resource type="Curve" id="Curve_p1sbk"]
 _data = [Vector2(0, 0.637363), 0.0, 0.0, 0, 0, Vector2(0.820225, 1), 1.4, 0.0, 0, 0]
@@ -12,14 +14,18 @@ offsets = PackedFloat32Array(0.133333, 1)
 colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1)
 
 [node name="explosion" type="Area2D"]
+script = ExtResource("1_2kt78")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_nw7bl")
+disabled = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 modulate = Color(0.682353, 0, 0.12549, 1)
+emitting = false
 amount = 75
-lifetime = 0.5
+lifetime = 0.2
+one_shot = true
 explosiveness = 1.0
 randomness = 0.1
 direction = Vector2(1, 1)
@@ -27,7 +33,7 @@ spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 60.0
 initial_velocity_max = 70.0
-scale_amount_min = 2.0
-scale_amount_max = 2.0
+scale_amount_min = 4.0
+scale_amount_max = 5.0
 scale_amount_curve = SubResource("Curve_p1sbk")
 color_ramp = SubResource("Gradient_vas1w")

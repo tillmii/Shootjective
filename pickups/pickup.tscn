@@ -8,6 +8,7 @@
 radius = 28.4429
 
 [node name="Pickup" type="Area2D"]
+top_level = true
 collision_mask = 3
 script = ExtResource("1_sbhwg")
 icon = ExtResource("2_00nln")

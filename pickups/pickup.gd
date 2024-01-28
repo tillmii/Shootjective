@@ -9,7 +9,8 @@ signal collected
 @onready var sprite = $Sprite2D
 
 func _ready():
-	sprite.texture = icon
+	if icon:
+		sprite.texture = icon
 
 func _on_body_entered(body):
 	collected.emit()
