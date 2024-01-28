@@ -14,6 +14,8 @@ var is_dashing = false
 var dash_dir: Vector2
 var dash_origin
 
+@export var player_status : PlayerStatus
+
 func _ready():
 	_animated_sprite.play("walk")
 	_animated_sprite.sprite_frames.set_animation_loop("dash", false)	

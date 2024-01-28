@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://cq5s0d2kx7dv6"]
+[gd_scene load_steps=29 format=3 uid="uid://cq5s0d2kx7dv6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
 [ext_resource type="Texture2D" uid="uid://b7odjty52wiwb" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
 [ext_resource type="Texture2D" uid="uid://beeo5orhfry8s" path="res://player/art/dash/sprite_0.png" id="2_6b2yk"]
+[ext_resource type="Resource" uid="uid://bcku45jw0vgol" path="res://effects/default_player_status.tres" id="2_83o2j"]
 [ext_resource type="Texture2D" uid="uid://dbbxq44uuxx3r" path="res://player/art/walk/sprite_1.png" id="2_d0bwd"]
 [ext_resource type="Texture2D" uid="uid://uls5uogfndyl" path="res://player/art/dash/sprite_1.png" id="3_84xmt"]
 [ext_resource type="Texture2D" uid="uid://gdv46ug60dkv" path="res://player/art/walk/sprite_2.png" id="3_vyt8v"]
@@ -112,6 +113,7 @@ height = 52.0
 collision_layer = 2
 script = ExtResource("1_17hwi")
 player_index = "p1"
+player_status = ExtResource("2_83o2j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.101758, 0.101758)
