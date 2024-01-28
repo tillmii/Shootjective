@@ -6,6 +6,8 @@ extends Node2D
 
 @export var pickup_scene : PackedScene
 
+@export var effect_pool : Array[Effect]
+
 func _ready():
 	spawn_pickup()
 
@@ -17,6 +19,11 @@ func spawn_pickup():
 	
 	var pickup_instance = pickup_scene.instantiate()
 	pickup_instance as pickup
+	
+	var effect = effect_pool.pick_random()
+	pickup_instance.effect = effect
+	pickup_instance.icon = effect.icon
+	
 	pickup_instance.connect("collected", on_pickup_collected)
 	get_tree().current_scene.add_child.call_deferred(pickup_instance)
 	pickup_instance.global_position = spawn_position

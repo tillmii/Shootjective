@@ -37,6 +37,7 @@ func _fire():
 	var projectile_instance = _projectile.instantiate()
 	projectile_instance.position = player.position
 	projectile_instance.apply_impulse(input * player.status.projectile_speed)
+	projectile_instance.scale = player.status.projectile_size
 	get_tree().root.add_child(projectile_instance)
 
 
