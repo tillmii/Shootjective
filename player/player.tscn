@@ -294,6 +294,7 @@ height = 52.0
 load_path = "res://.godot/imported/1x1_#FFFFFFFF.png-796ff1d6a025d93ca7105d2d7e2ad813.ctex"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7ve3k"]
+resource_local_to_scene = true
 shader = ExtResource("34_f24pf")
 shader_parameter/color = null
 
