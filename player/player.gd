@@ -5,6 +5,7 @@ class_name player_character
 @onready var _animated_sprite = $AnimatedSprite2D
 
 @onready var _dash_cooldown = $DashCooldown
+@onready var dash_progress_bar = $DashProgressBar
 var can_dash = true
 var is_dashing = false
 var dash_dir: Vector2
@@ -47,6 +48,7 @@ func dash():
 	_animated_sprite.play("dash")
 
 func _physics_process(delta):
+	dash_progress_bar.value = _dash_cooldown.time_left
 	velocity = get_input() * status.character_speed
 	if is_dashing:
 		velocity = dash_dir * status.dash_speed

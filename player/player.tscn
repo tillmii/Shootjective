@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://cq5s0d2kx7dv6"]
+[gd_scene load_steps=30 format=3 uid="uid://cq5s0d2kx7dv6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
 [ext_resource type="Texture2D" uid="uid://b7odjty52wiwb" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
 [ext_resource type="Texture2D" uid="uid://beeo5orhfry8s" path="res://player/art/dash/sprite_0.png" id="2_6b2yk"]
-[ext_resource type="Resource" uid="uid://bcku45jw0vgol" path="res://effects/default_player_status.tres" id="2_83o2j"]
+[ext_resource type="Resource" uid="uid://bcku45jw0vgol" path="res://effects/default_player_status.tres" id="2_7uci7"]
 [ext_resource type="Texture2D" uid="uid://dbbxq44uuxx3r" path="res://player/art/walk/sprite_1.png" id="2_d0bwd"]
 [ext_resource type="Texture2D" uid="uid://uls5uogfndyl" path="res://player/art/dash/sprite_1.png" id="3_84xmt"]
 [ext_resource type="Texture2D" uid="uid://gdv46ug60dkv" path="res://player/art/walk/sprite_2.png" id="3_vyt8v"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dieevacmcra4r" path="res://player/art/walk/sprite_7.png" id="8_ygt3a"]
 [ext_resource type="Texture2D" uid="uid://d3kftcqdogxnh" path="res://player/art/idle/sprite_0.png" id="9_xn7cd"]
 [ext_resource type="Texture2D" uid="uid://da7uhltxxq7ge" path="res://player/art/idle/sprite_1.png" id="10_3ix1u"]
-[ext_resource type="PackedScene" uid="uid://c6su31t67ncek" path="res://player/shooter.tscn" id="10_grwlg"]
+[ext_resource type="PackedScene" path="res://player/shooter.tscn" id="10_grwlg"]
 [ext_resource type="Texture2D" uid="uid://bsar72glomlv" path="res://player/art/idle/sprite_2.png" id="11_s7ptk"]
 [ext_resource type="Texture2D" uid="uid://c5mar4bjuo0g2" path="res://player/art/idle/sprite_3.png" id="12_qrdfr"]
 [ext_resource type="Texture2D" uid="uid://dan8ni717bwli" path="res://player/art/idle/sprite_4.png" id="13_01m2c"]
@@ -109,11 +109,14 @@ animations = [{
 radius = 18.0
 height = 52.0
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mrlkl"]
+load_path = "res://.godot/imported/1x1_#FFFFFFFF.png-796ff1d6a025d93ca7105d2d7e2ad813.ctex"
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_17hwi")
 player_index = "p1"
-status = ExtResource("2_83o2j")
+status = ExtResource("2_7uci7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.101758, 0.101758)
@@ -128,6 +131,21 @@ shape = SubResource("CapsuleShape2D_qyomo")
 
 [node name="DashCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="DashProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -32.0
+offset_top = 28.0
+offset_right = 32.0
+offset_bottom = 35.0
+max_value = 1.0
+step = 0.01
+value = 1.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_under = SubResource("CompressedTexture2D_mrlkl")
+texture_progress = SubResource("CompressedTexture2D_mrlkl")
+tint_under = Color(0.278431, 0.584314, 0.219608, 0.890196)
+tint_progress = Color(0, 0, 0, 1)
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_rqhtj")
