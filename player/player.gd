@@ -64,7 +64,7 @@ func dash():
 
 func _physics_process(delta):
 	dash_progress_bar.value = _dash_cooldown.time_left
-	velocity = get_input() * status.character_speed
+	velocity = get_input() * status.character_speed * status.character_reverse_movement
 	if is_dashing:
 		velocity = dash_dir * status.dash_speed
 		if position.distance_to(dash_origin) >= status.dash_distance || get_slide_collision_count() > 0:

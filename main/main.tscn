@@ -1,11 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://clol7avgfpm7v"]
+[gd_scene load_steps=13 format=3 uid="uid://clol7avgfpm7v"]
 
 [ext_resource type="PackedScene" uid="uid://cq5s0d2kx7dv6" path="res://player/player.tscn" id="1_cptyd"]
 [ext_resource type="PackedScene" uid="uid://craupcfmahbwv" path="res://pickups/pickup_spawner.tscn" id="2_ayads"]
 [ext_resource type="Texture2D" uid="uid://b8i16pbnhcgvw" path="res://main/art/Wall_1_klein.png" id="3_peqwy"]
 [ext_resource type="Texture2D" uid="uid://bueow420axhhd" path="res://main/art/Floor_Tile_1_klein.png" id="4_4geqi"]
-[ext_resource type="Resource" uid="uid://bi74dcfl3tjsv" path="res://effects/effect_resources/teleport_dash.tres" id="4_xh0xp"]
-[ext_resource type="Resource" uid="uid://cr7vpqkt3rd0d" path="res://effects/effect_resources/ProjectileSizeUp.tres" id="5_3bacp"]
 [ext_resource type="PackedScene" uid="uid://cya5jiu8o4r5a" path="res://UI/health_bar.tscn" id="5_cqh1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nu04"]
@@ -172,7 +170,6 @@ position = Vector2(0, 0)
 bounds_X = 720.0
 Bounds_up = -288.0
 bounds_down = 393.0
-effect_pool = Array[Resource("res://effects/Effect.gd")]([ExtResource("4_xh0xp"), ExtResource("5_3bacp")])
 
 [node name="player" parent="." instance=ExtResource("1_cptyd")]
 position = Vector2(-633, -190)

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ReverseMovement" load_steps=3 format=3 uid="uid://bva3xu1mkgw6x"]
+
+[ext_resource type="Script" path="res://effects/ReverseMovement.gd" id="1_t1qru"]
+[ext_resource type="Texture2D" uid="uid://d2tikw3mgvihq" path="res://effects/art/Reverse.png" id="1_wfw40"]
+
+[resource]
+script = ExtResource("1_t1qru")
+name = "ReverseMovement"
+icon = ExtResource("1_wfw40")
