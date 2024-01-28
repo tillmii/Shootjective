@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://pickups/pickup.gd" id="1_sbhwg"]
 [ext_resource type="Texture2D" uid="uid://ckwch1ct1lmbu" path="res://pickups/art/Shield.png" id="2_00nln"]
-[ext_resource type="Resource" uid="uid://bi74dcfl3tjsv" path="res://effects/teleport_dash.tres" id="3_n07qc"]
+[ext_resource type="Resource" uid="uid://bi74dcfl3tjsv" path="res://effects/effect_resources/teleport_dash.tres" id="3_n07qc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rc6jr"]
 radius = 28.4429

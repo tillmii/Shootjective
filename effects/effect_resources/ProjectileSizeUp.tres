@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ProjectileSizeChange" load_steps=3 format=3 uid="uid://cr7vpqkt3rd0d"]
+
+[ext_resource type="Script" path="res://effects/ProjectileSizeUp.gd" id="1_5pm0n"]
+[ext_resource type="Texture2D" uid="uid://kmaxcci2gbt7" path="res://effects/art/Bullet_Size_Increase.png" id="1_8rrqx"]
+
+[resource]
+script = ExtResource("1_5pm0n")
+multiplier = 2.0
+name = "Projectile Size Up"
+icon = ExtResource("1_8rrqx")
