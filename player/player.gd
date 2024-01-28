@@ -1,6 +1,8 @@
 extends CharacterBody2D
 class_name player_character
 
+@export_color_no_alpha var color: Color
+
 @export_enum("p1", "p2") var player_index: String
 @onready var _held_effect_icon = $AbilityAvailableIcon/AbilityIcon
 @onready var _animated_sprite = $AnimationPlayer
@@ -18,6 +20,8 @@ var held_effect : Effect
 @export var status : PlayerStatus
 
 func _ready():
+	$ColorRect.material.set_shader_parameter("color", color)
+	
 	status.connect("status_changed", _on_player_status_changed)
 	status = status.duplicate()
 	

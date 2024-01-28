@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cq5s0d2kx7dv6"]
+[gd_scene load_steps=45 format=3 uid="uid://cq5s0d2kx7dv6"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_17hwi"]
 [ext_resource type="Texture2D" uid="uid://b7odjty52wiwb" path="res://player/art/walk/sprite_0.png" id="1_yvnuy"]
@@ -33,6 +33,7 @@
 [ext_resource type="AudioStream" uid="uid://bdb6c6j3jvmdp" path="res://player/sfx/dash1.wav" id="24_n2i56"]
 [ext_resource type="Texture2D" uid="uid://de6niqknlmy27" path="res://effects/art/Shield.png" id="24_srkjb"]
 [ext_resource type="PackedScene" uid="uid://cgd2swuhlr3rf" path="res://player/health.tscn" id="25_otbrv"]
+[ext_resource type="Shader" path="res://player/player.gdshader" id="34_f24pf"]
 
 [sub_resource type="Animation" id="Animation_q18sl"]
 length = 0.001
@@ -292,9 +293,14 @@ height = 52.0
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mrlkl"]
 load_path = "res://.godot/imported/1x1_#FFFFFFFF.png-796ff1d6a025d93ca7105d2d7e2ad813.ctex"
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ve3k"]
+shader = ExtResource("34_f24pf")
+shader_parameter/color = null
+
 [node name="player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_17hwi")
+color = Color(0, 0, 1, 1)
 player_index = "p1"
 status = ExtResource("2_pseyt")
 
@@ -356,6 +362,13 @@ stream = ExtResource("24_n2i56")
 pitch_scale = 2.0
 
 [node name="Health" parent="." instance=ExtResource("25_otbrv")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_7ve3k")
+offset_left = -36.0
+offset_top = -26.0
+offset_right = 36.0
+offset_bottom = 25.0
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="hit_points_changed" from="Health" to="." method="_on_health_hit_points_changed"]
