@@ -139,3 +139,4 @@ pitch_scale = 2.0
 [node name="Health" parent="." instance=ExtResource("25_otbrv")]
 
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="hit_points_depleted" from="Health" to="." method="_on_health_hit_points_depleted"]

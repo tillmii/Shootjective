@@ -65,3 +65,6 @@ func _physics_process(delta):
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
+
+func _on_health_hit_points_depleted():
+	queue_free()
