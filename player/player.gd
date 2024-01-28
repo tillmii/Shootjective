@@ -3,13 +3,17 @@ class_name player_character
 
 @export_enum("p1", "p2") var player_index: String
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _held_effect_icon = $AbilityAvailableIcon/AbilityIcon
 
 @onready var _dash_cooldown = $DashCooldown
 @onready var dash_progress_bar = $DashProgressBar
+var _other_player : player_character
 var can_dash = true
 var is_dashing = false
 var dash_dir: Vector2
 var dash_origin
+
+var held_effect : Effect
 
 @export var status : PlayerStatus
 
@@ -18,6 +22,11 @@ func _ready():
 	status = status.duplicate()
 	_animated_sprite.play("walk")
 	_animated_sprite.sprite_frames.set_animation_loop("dash", false)
+	
+	var tree = get_tree()
+	for node in get_tree().current_scene.get_children():
+		if node is player_character && node != self:
+			_other_player = node
 
 func get_player_index():
 	return player_index
@@ -34,11 +43,10 @@ func _input(event):
 	if Input.is_action_just_pressed(player_index + "_shoot"):
 		var trigger_shooting
 	if Input.is_action_just_pressed(player_index + "_ability_enemy"):
-		#placeholder
+		activate_held_effect(_other_player)
 		var add_ability_activation
 	if Input.is_action_just_pressed(player_index + "_ability_self"):
-		#placeholder
-		var add_ability_activation
+		activate_held_effect(self)
 
 func dash():
 	dash_dir = get_input().normalized()
@@ -68,6 +76,16 @@ func _physics_process(delta):
 	else:
 		_animated_sprite.play("walk")
 	move_and_slide()
+
+func activate_held_effect(target_player : player_character):
+	held_effect.activate(target_player.status)
+	_held_effect_icon.visible = false
+
+func pickup(effect : Effect):
+	held_effect = effect
+	_held_effect_icon.texture = effect.icon
+	_held_effect_icon.visible = true
+	
 
 func _on_player_status_changed():
 	# shader related changes?

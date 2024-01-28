@@ -14,7 +14,9 @@ func _ready():
 func _on_body_entered(body):
 	collected.emit()
 	body as player_character
-	if is_instance_valid(body.status):
-		effect.activate(body.status)
+	if body.has_method("pickup"):
+		body.pickup(effect)
+	#if is_instance_valid(body.status):
+		#effect.activate(body.status)
 	queue_free()
 
