@@ -342,8 +342,9 @@ fill_mode = 1
 nine_patch_stretch = true
 texture_under = SubResource("CompressedTexture2D_mrlkl")
 texture_progress = SubResource("CompressedTexture2D_mrlkl")
-tint_under = Color(0.278431, 0.584314, 0.219608, 0.890196)
-tint_progress = Color(0, 0, 0, 1)
+tint_under = Color(0.278431, 0.584314, 0.219608, 0)
+tint_over = Color(1, 1, 1, 0)
+tint_progress = Color(1, 1, 1, 0.423529)
 
 [node name="Shoot" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("23_rqhtj")
