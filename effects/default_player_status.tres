@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="PlayerStatus" load_steps=2 format=3 uid="uid://bcku45jw0vgol"]
+
+[ext_resource type="Script" path="res://effects/PlayerStatus.gd" id="1_0n4oj"]
+
+[resource]
+script = ExtResource("1_0n4oj")
+character_speed = 300.0
+character_alpha = 1
+character_stretch = Vector2(1, 1)
+character_color = Vector3(0, 1, 0)
+character_reverse_movement = 1
+character_inverse_shoot_direction = 1
+projectile_speed = 1000.0
+projectile_size = Vector2(1, 1)
+projectile_cooldown = 0.4
+projectile_effects = Array[Resource("res://effects/ProjectileEffect.gd")]([])
+dash_distance = 200.0
+dash_cooldown = 1.0
+dash_visibility = 1
+dash_effects = Array[Resource("res://effects/DashEffect.gd")]([])

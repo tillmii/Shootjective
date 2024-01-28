@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://drn8ptdbpe4xt"]
+
+[ext_resource type="Script" path="res://effects/Effect.gd" id="1_58cme"]
+
+[resource]
+script = ExtResource("1_58cme")
+name = "Speed Up"

@@ -1,20 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://b0guevdhhpxm6"]
+[gd_scene load_steps=5 format=3 uid="uid://b0guevdhhpxm6"]
 
-[ext_resource type="Texture2D" uid="uid://cto33hcg2qqp4" path="res://icon.svg" id="1_gj4ed"]
 [ext_resource type="Script" path="res://pickups/pickup.gd" id="1_sbhwg"]
+[ext_resource type="Texture2D" uid="uid://iwumjpgg54c0" path="res://pickups/art/Bullet_Size_Decrease.png" id="2_5snfc"]
+[ext_resource type="Texture2D" uid="uid://blm2ilusfd17d" path="res://pickups/art/Bullet_Random(1).png" id="2_lwecn"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_rc6jr"]
-radius = 28.4429
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3tpoh"]
+size = Vector2(38, 38)
 
 [node name="Pickup" type="Area2D"]
 collision_mask = 3
 script = ExtResource("1_sbhwg")
+icon = ExtResource("2_5snfc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("1_gj4ed")
+scale = Vector2(0.0371094, 0.0371094)
+texture = ExtResource("2_lwecn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_rc6jr")
+shape = SubResource("RectangleShape2D_3tpoh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
