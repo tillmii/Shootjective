@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgmcb3qx3twnx"]
+
+[ext_resource type="Texture2D" uid="uid://e4hu7j4cbols" path="res://UI/art/play.png" id="1_y6jj7"]
+[ext_resource type="Texture2D" uid="uid://cewmjupo8ed8w" path="res://UI/art/close.png" id="2_0w27q"]
+[ext_resource type="Script" path="res://UI/Play.gd" id="2_equ4f"]
+[ext_resource type="Script" path="res://UI/Close.gd" id="4_wradv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_asm8h"]
+font_size = 40
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchor_left = 0.532
+anchor_top = 0.5
+anchor_right = 0.532
+anchor_bottom = 0.5
+offset_left = -612.864
+offset_top = -324.0
+offset_right = 539.136
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.533
+anchor_top = 0.54
+anchor_right = 0.533
+anchor_bottom = 0.54
+offset_left = -164.016
+offset_top = -323.92
+offset_right = 163.984
+offset_bottom = 177.08
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_asm8h")
+horizontal_alignment = 1
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("1_y6jj7")
+script = ExtResource("2_equ4f")
+
+[node name="Close" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_0w27q")
+script = ExtResource("4_wradv")
+
+[connection signal="pressed" from="VBoxContainer/Play" to="VBoxContainer/Play" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/Close" to="VBoxContainer/Close" method="_on_pressed"]
