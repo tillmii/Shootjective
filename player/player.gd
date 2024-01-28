@@ -20,8 +20,6 @@ var held_effect : Effect
 func _ready():
 	status.connect("status_changed", _on_player_status_changed)
 	status = status.duplicate()
-	_animated_sprite.play("walk")
-	_animated_sprite.sprite_frames.set_animation_loop("dash", false)
 	
 	var tree = get_tree()
 	for node in get_tree().current_scene.get_children():
@@ -93,6 +91,7 @@ func pickup(effect : Effect):
 func _on_player_status_changed():
 	# shader related changes?
 	scale = status.character_stretch
+	modulate.a = status.character_alpha
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
