@@ -12,6 +12,9 @@ func _process(delta):
 	pass
 
 
-func dash():
-	
+# Override
+func before_dash(player_status: PlayerStatus):
+	pass
+
+func after_dash(player_status: PlayerStatus):
 	pass

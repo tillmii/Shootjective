@@ -42,6 +42,8 @@ func dash():
 	dash_dir = get_input().normalized()
 	if dash_dir == Vector2.ZERO || !can_dash:
 		return
+	for dash_effect in status.dash_effects:
+		dash_effect.before_dash(status)
 	is_dashing = true
 	dash_origin = position
 	$Dash.play()
@@ -56,6 +58,8 @@ func _physics_process(delta):
 			is_dashing = false
 			can_dash = false
 			_dash_cooldown.start(status.dash_cooldown)
+			for dash_effect in status.dash_effects:
+				dash_effect.after_dash(status)
 	elif velocity == Vector2.ZERO:
 		_animated_sprite.play("idle")
 		return

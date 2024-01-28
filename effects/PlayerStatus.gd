@@ -6,6 +6,8 @@ class_name PlayerStatus
 @export_enum("Invisible:0", "Default:1") var character_alpha: int
 @export var character_stretch: Vector2
 @export var character_color: Vector3
+@export var character_hittable: bool
+@export var character_vulnerable: bool
 @export_enum("Inverse:-1", "Default:1") var character_reverse_movement: int
 @export_enum("Inverse:-1", "Default:1") var character_inverse_shoot_direction: int
 #var character_current_health

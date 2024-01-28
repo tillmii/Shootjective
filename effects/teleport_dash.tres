@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="TeleportDash" load_steps=2 format=3 uid="uid://bi74dcfl3tjsv"]
+
+[ext_resource type="Script" path="res://effects/TeleportDash.gd" id="1_nrc6m"]
+
+[resource]
+script = ExtResource("1_nrc6m")
+name = ""
