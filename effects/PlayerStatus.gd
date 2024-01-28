@@ -1,6 +1,8 @@
 extends Resource
 class_name PlayerStatus
 
+signal status_changed
+
 # Character
 @export var character_speed: float
 @export_enum("Invisible:0", "Default:1") var character_alpha: int

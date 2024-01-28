@@ -14,8 +14,10 @@ var dash_origin
 @export var status : PlayerStatus
 
 func _ready():
+	status.connect("status_changed", _on_player_status_changed)
+	status = status.duplicate()
 	_animated_sprite.play("walk")
-	_animated_sprite.sprite_frames.set_animation_loop("dash", false)	
+	_animated_sprite.sprite_frames.set_animation_loop("dash", false)
 
 func get_player_index():
 	return player_index
@@ -70,6 +72,7 @@ func _physics_process(delta):
 func _on_player_status_changed():
 	# shader related changes?
 	scale = status.character_stretch
+	modulate.a = status.character_alpha
 
 func _on_dash_cooldown_timeout():
 	can_dash = true
