@@ -1,0 +1,120 @@
+[gd_scene load_steps=17 format=3 uid="uid://e4nqls2ntp82"]
+
+[ext_resource type="Script" path="res://UI/start_sreen.gd" id="1_75tsq"]
+[ext_resource type="Texture2D" uid="uid://4xee2mbkcscx" path="res://UI/art/start_screen.png" id="2_gi6ad"]
+[ext_resource type="Texture2D" uid="uid://e4hu7j4cbols" path="res://UI/art/play.png" id="3_d8lcw"]
+[ext_resource type="Texture2D" uid="uid://cewmjupo8ed8w" path="res://UI/art/close.png" id="4_5sswn"]
+[ext_resource type="Texture2D" uid="uid://bom3qk52no7qm" path="res://UI/art/Idle_Pink/sprite_0.png" id="5_semgj"]
+[ext_resource type="Texture2D" uid="uid://cug8wilhbyhk2" path="res://UI/art/Idle_Pink/sprite_1.png" id="6_cpef8"]
+[ext_resource type="Texture2D" uid="uid://blmb1wqqpgvlf" path="res://UI/art/Idle_Pink/sprite_2.png" id="7_slojx"]
+[ext_resource type="Texture2D" uid="uid://0uywbifqa3iu" path="res://UI/art/Idle_Pink/sprite_3.png" id="8_64h6h"]
+[ext_resource type="Texture2D" uid="uid://criaj0qx3dnqh" path="res://UI/art/Idle_Pink/sprite_4.png" id="9_b1yxt"]
+[ext_resource type="Texture2D" uid="uid://b40jy6i4gil0l" path="res://UI/art/Idle_Green/sprite_0.png" id="10_csqqe"]
+[ext_resource type="Texture2D" uid="uid://cdbudbedwqn7k" path="res://UI/art/Idle_Green/sprite_1.png" id="11_dxywo"]
+[ext_resource type="Texture2D" uid="uid://cq5lmm3ax8ofh" path="res://UI/art/Idle_Green/sprite_2.png" id="12_ofxwn"]
+[ext_resource type="Texture2D" uid="uid://b6xkmcj3snr4l" path="res://UI/art/Idle_Green/sprite_3.png" id="13_bhxk6"]
+[ext_resource type="Texture2D" uid="uid://bftdm1m38l6jq" path="res://UI/art/Idle_Green/sprite_4.png" id="14_5m76s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14dbc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_semgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cpef8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_slojx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_64h6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_b1yxt")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 12.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_luabp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_csqqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dxywo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ofxwn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_bhxk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5m76s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 12.0
+}]
+
+[node name="Start_Sreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_75tsq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577.5, 321.25)
+scale = Vector2(1.10461, 0.931655)
+texture = ExtResource("2_gi6ad")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 500.0
+offset_top = 200.0
+offset_right = -324.0
+offset_bottom = -36.0
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_d8lcw")
+
+[node name="Close" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+icon = ExtResource("4_5sswn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(267, 390)
+scale = Vector2(0.464286, 0.455357)
+sprite_frames = SubResource("SpriteFrames_14dbc")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.0194683
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(961, 370)
+scale = Vector2(0.354167, 0.351563)
+sprite_frames = SubResource("SpriteFrames_luabp")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.292123
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Close" to="." method="_on_close_pressed"]
