@@ -1,7 +1,6 @@
-[gd_resource type="Resource" script_class="PlayerStatus" load_steps=3 format=3 uid="uid://bcku45jw0vgol"]
+[gd_resource type="Resource" script_class="PlayerStatus" load_steps=2 format=3 uid="uid://bcku45jw0vgol"]
 
 [ext_resource type="Script" path="res://effects/PlayerStatus.gd" id="1_0n4oj"]
-[ext_resource type="Resource" path="res://effects/teleport_dash.tres" id="1_mw22k"]
 
 [resource]
 script = ExtResource("1_0n4oj")
@@ -21,4 +20,4 @@ dash_distance = 200.0
 dash_speed = 1200.0
 dash_cooldown = 1.0
 dash_visibility = 1
-dash_effects = Array[Resource("res://effects/DashEffect.gd")]([ExtResource("1_mw22k")])
+dash_effects = Array[Resource("res://effects/DashEffect.gd")]([])

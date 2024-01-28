@@ -25,3 +25,6 @@ func after_dash(player_status: PlayerStatus):
 	#player_status.character_vulnerable = character_vulnerable
 	player_status.dash_speed = dash_speed
 	player_status.status_changed.emit()
+
+func activate(player_status : PlayerStatus):
+	player_status.dash_effects.append(self)
