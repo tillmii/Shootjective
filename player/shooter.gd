@@ -1,13 +1,13 @@
 extends Node
 
-var player: CharacterBody2D
+var player: player_character
 var player_index: String
 var _projectile = preload("res://projectile/projectile.tscn")
 
 @onready var _timer = $Timer
 var _can_shoot: bool = true
 
-var IMPULSE: int = 1000
+#var IMPULSE: int = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,7 +36,7 @@ func _fire():
 	$"../Shoot".play()
 	var projectile_instance = _projectile.instantiate()
 	projectile_instance.position = player.position
-	projectile_instance.apply_impulse(input * IMPULSE)
+	projectile_instance.apply_impulse(input * player.status.projectile_speed)
 	get_tree().root.add_child(projectile_instance)
 
 

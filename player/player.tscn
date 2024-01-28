@@ -113,7 +113,7 @@ height = 52.0
 collision_layer = 2
 script = ExtResource("1_17hwi")
 player_index = "p1"
-player_status = ExtResource("2_83o2j")
+status = ExtResource("2_83o2j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.101758, 0.101758)

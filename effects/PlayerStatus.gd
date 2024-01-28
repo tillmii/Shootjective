@@ -23,6 +23,7 @@ class_name PlayerStatus
 
 # Dash
 @export var dash_distance: float
+@export var dash_speed: float
 @export var dash_cooldown: float
 @export_enum("Invisible:0", "Default:1") var dash_visibility: int
 @export var dash_effects: Array[DashEffect]

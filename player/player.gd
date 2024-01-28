@@ -2,10 +2,6 @@ extends CharacterBody2D
 class_name player_character
 
 @export_enum("p1", "p2") var player_index: String
-const SPEED = 400.0
-const DASH_SPEED = 1200.0
-const DASH_DIST = 200.0
-const DASH_COOLDOWN = 1
 @onready var _animated_sprite = $AnimatedSprite2D
 
 @onready var _dash_cooldown = $DashCooldown
@@ -14,7 +10,7 @@ var is_dashing = false
 var dash_dir: Vector2
 var dash_origin
 
-@export var player_status : PlayerStatus
+@export var status : PlayerStatus
 
 func _ready():
 	_animated_sprite.play("walk")
@@ -51,13 +47,13 @@ func dash():
 	_animated_sprite.play("dash")
 
 func _physics_process(delta):
-	velocity = get_input() * SPEED
+	velocity = get_input() * status.character_speed
 	if is_dashing:
-		velocity = dash_dir * DASH_SPEED
-		if position.distance_to(dash_origin) >= DASH_DIST || get_slide_collision_count() > 0:
+		velocity = dash_dir * status.dash_speed
+		if position.distance_to(dash_origin) >= status.dash_distance || get_slide_collision_count() > 0:
 			is_dashing = false
 			can_dash = false
-			_dash_cooldown.start(DASH_COOLDOWN)
+			_dash_cooldown.start(status.dash_cooldown)
 	elif velocity == Vector2.ZERO:
 		_animated_sprite.play("idle")
 		return
