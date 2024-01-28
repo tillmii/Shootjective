@@ -13,6 +13,9 @@ func _ready():
 	max_hit_points = initial_values.character_max_hit_points
 	hit_points_changed.emit(current_hit_points)
 
+func apply_hit():
+	take_damage(1)
+
 func heal_by_amount(heal_amount : int):
 	current_hit_points += heal_amount
 	if current_hit_points > max_hit_points:

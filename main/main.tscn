@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://clol7avgfpm7v"]
+[gd_scene load_steps=13 format=3 uid="uid://clol7avgfpm7v"]
 
 [ext_resource type="PackedScene" uid="uid://cq5s0d2kx7dv6" path="res://player/player.tscn" id="1_cptyd"]
 [ext_resource type="PackedScene" uid="uid://craupcfmahbwv" path="res://pickups/pickup_spawner.tscn" id="2_ayads"]
 [ext_resource type="Texture2D" uid="uid://b8i16pbnhcgvw" path="res://main/art/Wall_1_klein.png" id="3_peqwy"]
 [ext_resource type="Texture2D" uid="uid://bueow420axhhd" path="res://main/art/Floor_Tile_1_klein.png" id="4_4geqi"]
+[ext_resource type="PackedScene" uid="uid://cya5jiu8o4r5a" path="res://UI/health_bar.tscn" id="5_cqh1d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7nu04"]
 texture = ExtResource("4_4geqi")
@@ -176,3 +177,25 @@ position = Vector2(-633, -190)
 [node name="player2" parent="." instance=ExtResource("1_cptyd")]
 position = Vector2(638, 364)
 player_index = "p2"
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthBarP1" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("5_cqh1d")]
+layout_mode = 0
+offset_left = -736.0
+offset_top = -400.0
+offset_right = -532.0
+offset_bottom = -367.0
+player = NodePath("../../player")
+
+[node name="HealthBarP2" parent="HUD" node_paths=PackedStringArray("player") instance=ExtResource("5_cqh1d")]
+layout_mode = 0
+offset_left = 528.0
+offset_top = -400.0
+offset_right = 732.0
+offset_bottom = -367.0
+player = NodePath("../../player2")

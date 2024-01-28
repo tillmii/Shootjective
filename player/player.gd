@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name player_character
 
 @export_enum("p1", "p2") var player_index: String
 const SPEED = 400.0
