@@ -18,6 +18,6 @@ projectile_cooldown = 0.4
 projectile_effects = Array[Resource("res://effects/ProjectileEffect.gd")]([])
 dash_distance = 200.0
 dash_speed = 1200.0
-dash_cooldown = 1.0
+dash_cooldown = 0.5
 dash_visibility = 1
 dash_effects = Array[Resource("res://effects/DashEffect.gd")]([])
